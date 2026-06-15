@@ -4,15 +4,22 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Resume Template</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 <style>
 body{margin:0;background:#eef2f7;font-family:Arial,sans-serif;padding:24px}
 .wrap{max-width:900px;margin:auto}
 
-/* Main card background */
-.card{background:#0e5c56;color:#ffffff;border-radius:18px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.15)}
+/* Main resume area jiska PDF banega */
+.invoice-box {
+  background:#0e5c56;
+  color:#ffffff;
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 10px 30px rgba(0,0,0,.15);
+  padding: 28px;
+}
 
-/* Top section ka padding thoda adjust kiya taaki gap perfectly match ho */
-.top{padding:28px 28px 0 28px;color:#facc15;text-align:center;}
+.top{padding:10px 0 0 0;color:#facc15;text-align:center;}
 
 .top h1{
   margin:0 0 12px 0;
@@ -20,25 +27,19 @@ body{margin:0;background:#eef2f7;font-family:Arial,sans-serif;padding:24px}
   color:#facc15;
 }
 
-/* Header ke andar ke boxes jo niche jaise hi dikhenge */
+/* Header text boxes styled like content boxes */
 .top-edit {
-  padding: 8px;
+  padding: 10px;
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.1);
   color: #facc15;
   margin-bottom: 12px;
-  display: inline-block;
+  display: block;
   width: 100%;
   box-sizing: border-box;
 }
 
-.top h1.top-edit {
-  display: block;
-}
-
-.content{padding:0 28px 28px 28px}
-
-/* Headings aur text boxes ke beech ka gap perfect kiya */
+/* Headings aur titles - Yellow Color */
 h2{
   font-size:16px;
   border-bottom:2px solid rgba(255,255,255,0.3);
@@ -48,28 +49,75 @@ h2{
   margin-bottom: 12px;
 }
 
+/* Input Boxes - White Text */
 .edit{
   min-height:32px;
-  padding:8px;
+  padding:10px;
   border-radius:8px;
-  background:rgba(255,255,255,0.1);
+  background:rgba(255, 255, 255, 0.1);
   color:#ffffff;
 }
 
-ul{margin-top:8px}
+/* Mobile Responsive Table Container */
+.table-responsive {
+  width: 100%;
+  overflow-x: auto; /* Isse mobile par side scroll chalega aur table kategi nahi */
+  -webkit-overflow-scrolling: touch;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Table Style for Education Section */
+.edu-table {
+  width: 100%;
+  min-width: 650px; /* Force karega columns ko sahi space lene ke liye */
+  border-collapse: collapse;
+  color: #ffffff;
+}
+.edu-table th, .edu-table td {
+  padding: 12px 10px;
+  text-align: left;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 14px;
+  word-break: break-word; /* Lambe words ko wrap karega */
+}
+.edu-table th {
+  background: rgba(255, 255, 255, 0.15);
+  color: #facc15;
+  font-weight: bold;
+}
+
 .small{color:#cbd5e1; margin-top: 24px;}
 .print{margin:16px 0}
-button{padding:12px 16px;border:none;border-radius:10px;background:#111827;color:white;cursor:pointer}
-[contenteditable="true"]:focus{outline:2px solid #60a5fa}
 
-/* Circle avatar */
+/* Download Button Styling */
+button{
+  padding:14px 20px;
+  border:none;
+  border-radius:10px;
+  background:#111827;
+  color:white;
+  font-weight: bold;
+  font-size: 14px;
+  cursor:pointer;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: background 0.2s;
+}
+button:hover{
+  background: #1f2937;
+}
+
+[contenteditable="true"]:focus{outline:2px solid #60a5fa; background: rgba(255,255,255,0.15);}
+
+/* Circle avatar design */
 .avatar {
-  width: 150px;
-  height: 150px;
+  width: 140px;
+  height: 140px;
   border-radius: 50%;
   overflow: hidden;
   margin: 0 auto 15px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  border: 3px solid #facc15;
 }
 .avatar img {
   width: 100%;
@@ -78,24 +126,24 @@ button{padding:12px 16px;border:none;border-radius:10px;background:#111827;color
   object-position: center top;
 }
 
-@media print{
-body{background:white;padding:0}
-.print{display:none}
-.card{box-shadow:none;background:#0e5c56 !important;-webkit-print-color-adjust: exact;print-color-adjust: exact;}
-.avatar img{-webkit-print-color-adjust: exact;print-color-adjust: exact;}
+/* Mobile responsive padding tweaks */
+@media (max-width: 480px) {
+  body { padding: 12px; }
+  .invoice-box { padding: 16px; }
+  .top h1 { font-size: 28px; }
 }
 </style>
 </head>
 <body>
 <div class="wrap">
 <div class="print">
-<button onclick="window.print()">Download / Save as PDF</button>
+  <button onclick="downloadPDF()">Download PDF File</button>
 </div>
 
-<div class="card">
+<div id="resume-card" class="invoice-box">
 <div class="top">
 <div class="avatar">
-<img src="Ved.png" alt="Profile Picture">
+  <img src="Ved.png" alt="Profile Picture">
 </div>
 <h1 class="top-edit" contenteditable="true">YOUR NAME</h1>
 <div class="top-edit" contenteditable="true">Fresher • TY Student • Web / .NET Developer</div>
@@ -104,40 +152,106 @@ body{background:white;padding:0}
 
 <div class="content">
 
-<h2>Profile</h2>
+<h2>CAREER OBJECTIVE</h2>
+<div class="edit" contenteditable="true">
+Third-year student looking for internship and fresher opportunities.
+</div>
+<h2>SKILLS</h2>
 <div class="edit" contenteditable="true">
 Third-year student looking for internship and fresher opportunities.
 </div>
 
-<h2>Education</h2>
-<div class="edit" contenteditable="true">
-Course • College • Graduation Year
+<h2>EDUCATION</h2>
+<!-- Responsive wrappers taaki choti screen par horizontal scroll chale -->
+<div class="table-responsive">
+  <table class="edu-table">
+    <thead>
+      <tr>
+        <th>Degree/Course</th>
+        <th>Institute/College</th>
+        <th>University/Board</th>
+        <th>Percentage/CGPA</th>
+        <th>Year of Passing</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td contenteditable="true">Maharashtra State Certificate in Information Technology</td>
+        <td contenteditable="true">Lakshya Computer Education</td>
+        <td contenteditable="true">Maharashtra Knowledge Corporation Limited</td>
+        <td contenteditable="true">58%</td>
+        <td contenteditable="true">2010</td>
+      </tr>
+      <tr>
+        <td contenteditable="true">(10th) Secondary School Certificate</td>
+        <td contenteditable="true">Maharashtra English High School</td>
+        <td contenteditable="true">Maharashtra State Board</td>
+        <td contenteditable="true">55.20%</td>
+        <td contenteditable="true">2014</td>
+      </tr>
+      <tr>
+        <td contenteditable="true">Higher Secondary School Certificate (12th)</td>
+        <td contenteditable="true">Advocate Gurunath Kulkarni College</td>
+        <td contenteditable="true">Maharashtra State Board</td>
+        <td contenteditable="true">49.38%</td>
+        <td contenteditable="true">2016</td>
+      </tr>
+      <tr>
+        <td contenteditable="true">Diploma in Software Engineering</td>
+        <td contenteditable="true">I-Tech Computer Education</td>
+        <td contenteditable="true">I-Tech Computer Education</td>
+        <td contenteditable="true">.%</td>
+        <td contenteditable="true">2020</td>
+      </tr>
+      <tr>
+        <td contenteditable="true">(Bsc) Bachelor of Science (IT)</td>
+        <td contenteditable="true">Dr.Babasaheb Ambedkar College</td>
+        <td contenteditable="true">Mumbai University</td>
+        <td contenteditable="true">.%</td>
+        <td contenteditable="true">2026</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 
-<h2>Skills</h2>
+<h2>ACHIEVEMENT</h2>
 <div class="edit" contenteditable="true">
 HTML • CSS • JavaScript • C# • .NET
 </div>
 
-<h2>Projects</h2>
+<h2>HOBBIES</h2>
 <div class="edit" contenteditable="true">
 Project Name — Description
 </div>
 
-<h2>Certificates</h2>
+<h2>PERSONAL DETAILS</h2>
 <div class="edit" contenteditable="true">
 Add certificates
 </div>
 
-<h2>Languages</h2>
+<h2>DECLARATION</h2>
 <div class="edit" contenteditable="true">
 English • Hindi
 </div>
 
-<p class="small">Click any section and type your own details. Then press Download / Save as PDF.</p>
+</div>
+</div>
+</div>
 
-</div>
-</div>
-</div>
+<script>
+function downloadPDF() {
+  const element = document.getElementById('resume-card');
+  
+  const opt = {
+    margin:       10,
+    filename:     'Resume.pdf',
+    image:        { type: 'jpeg', quality: 0.98 },
+    html2canvas:  { scale: 2, useCORS: true, scrollX: 0, scrollY: 0 },
+    jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
+  };
+  
+  html2pdf().set(opt).from(element).save();
+}
+</script>
 </body>
 </html>
