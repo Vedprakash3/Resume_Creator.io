@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Resume Template</title>
+<title>Professional Resume Template</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 <style>
 body{margin:0;background:#eef2f7;font-family:Arial,sans-serif;padding:24px}
@@ -91,6 +91,7 @@ h2 {
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.1);
   color: #ffffff;
+  line-height: 1.5;
 }
 
 /* Mobile Responsive Table Container */
@@ -100,21 +101,25 @@ h2 {
   -webkit-overflow-scrolling: touch;
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.1);
+  margin-bottom: 10px;
 }
 
-/* Table Style for Education Section */
+/* Table Style for Education Section - PDF cutting fixed here */
 .edu-table {
   width: 100%;
-  min-width: 650px;
   border-collapse: collapse;
   color: #ffffff;
+  table-layout: fixed; 
 }
 .edu-table th, .edu-table td {
-  padding: 12px 10px;
+  padding: 10px 6px;
   text-align: left;
   border: 1px solid rgba(255, 255, 255, 0.2);
-  font-size: 14px;
-  word-break: break-word;
+  font-size: 13px;
+  line-height: 1.4;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  vertical-align: top; 
 }
 .edu-table th {
   background: rgba(255, 255, 255, 0.15);
@@ -210,6 +215,7 @@ button:hover {
   .top-text-area h1 { font-size: 24px; }
   .top-edit { font-size: 14px; }
   .avatar { width: 90px; height: 115px; }
+  .edu-table th, .edu-table td { font-size: 11px; padding: 6px 4px; }
 }
 </style>
 </head>
@@ -222,13 +228,13 @@ button:hover {
 <div id="resume-card" class="invoice-box">
 <div class="top">
   <div class="top-text-area">
-    <h1 contenteditable="true">Vedprakash Dubey</h1>
-    <div class="top-edit" contenteditable="true">dubey281995@gmail.com</div>
-    <div class="top-edit" contenteditable="true">https://vedprakash3.github.io/</div>
-    <div class="top-edit" contenteditable="true">8329912725</div>
+    <h1 contenteditable="true">Your Name Here</h1>
+    <div class="top-edit" contenteditable="true">your.email@example.com</div>
+    <div class="top-edit" contenteditable="true">https://github.com/yourusername</div>
+    <div class="top-edit" contenteditable="true">Contact Number</div>
   </div>
   <div class="avatar">
-    <img src="Ved.png" alt="Profile Picture">
+    <img src="avatar.png" alt="Profile Picture">
   </div>
 </div>
 
@@ -236,14 +242,14 @@ button:hover {
 
 <h2>CAREER OBJECTIVE</h2>
 <div class="edit" contenteditable="true">
-Third-year student seeking internship and entry-level opportunities.
+Write your career objective or dynamic introduction here explaining your professional goals.
 </div>
 
 <h2>SKILLS</h2>
 <div class="edit" contenteditable="true">
-• Web Technologies: HTML5, CSS3, JavaScript, Responsive Web Design
-• Mobile Development: Web-to-App Conversion (Median.co), WebView Integration
-• Tools & Deployment: GitHub, Static Site Hosting
+• Technical Skills: Core Java, JavaScript, Python, C++<br>
+• Web Technologies: HTML5, CSS3, Responsive Design<br>
+• Databases & Tools: MySQL, Git, GitHub, VS Code
 </div>
 
 <h2>EDUCATION</h2>
@@ -256,91 +262,72 @@ Third-year student seeking internship and entry-level opportunities.
   <table class="edu-table" id="education-table">
     <thead>
       <tr>
-        <th>Degree/Course</th>
-        <th>Institute/College</th>
-        <th>University/Board</th>
-        <th>Percentage/<br>CGPA</th>
-        <th>Year of Passing</th>
+        <th style="width: 28%;">Degree/Course</th>
+        <th style="width: 25%;">Institute/College</th>
+        <th style="width: 23%;">University/Board</th>
+        <th style="width: 12%;">Percentage/<br>CGPA</th>
+        <th style="width: 12%;">Year of Passing</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td contenteditable="true">Maharashtra State Certificate in Information Technology</td>
-        <td contenteditable="true">Lakshya Computer Education</td>
-        <td contenteditable="true">Maharashtra Knowledge Corporation Limited</td>
-        <td contenteditable="true">58%</td>
-        <td contenteditable="true">2010</td>
+        <td contenteditable="true">Degree Name (e.g., BSc IT / BTech)</td>
+        <td contenteditable="true">College Name Here</td>
+        <td contenteditable="true">University Name</td>
+        <td contenteditable="true">Marks % / CGPA</td>
+        <td contenteditable="true">Passing Year</td>
       </tr>
       <tr>
-        <td contenteditable="true">(10th) Secondary School Certificate (SSC)</td>
-        <td contenteditable="true">Maharashtra English High School</td>
-        <td contenteditable="true">Maharashtra State Board</td>
-        <td contenteditable="true">55.20%</td>
-        <td contenteditable="true">2014</td>
+        <td contenteditable="true">Higher Secondary Certificate (12th)</td>
+        <td contenteditable="true">Junior College Name</td>
+        <td contenteditable="true">State / Central Board</td>
+        <td contenteditable="true">Marks %</td>
+        <td contenteditable="true">Passing Year</td>
       </tr>
       <tr>
-        <td contenteditable="true">(HSC) Higher Secondary School Certificate (12th Commerce Specialization: Mathematics & Information Technology)</td>
-        <td contenteditable="true">Advocate Gurunath Kulkarni College of Commerce and Management</td>
-        <td contenteditable="true">Maharashtra State Board</td>
-        <td contenteditable="true">49.38%</td>
-        <td contenteditable="true">2016</td>
-      </tr>
-      <tr>
-        <td contenteditable="true">Diploma in Software Engineering</td>
-        <td contenteditable="true">I-Tech Computer Education</td>
-        <td contenteditable="true">I-Tech Computer Education</td>
-        <td contenteditable="true">A Grade</td>
-        <td contenteditable="true">2020</td>
-      </tr>
-      <tr>
-        <td contenteditable="true">(Bsc) Bachelor of Science (Specialization: Information Technology)</td>
-        <td contenteditable="true">Dr.Babasaheb Ambedkar College of Science</td>
-        <td contenteditable="true">Mumbai University</td>
-        <td contenteditable="true">.%</td>
-        <td contenteditable="true">2026</td>
+        <td contenteditable="true">Secondary School Certificate (10th)</td>
+        <td contenteditable="true">School Name Here</td>
+        <td contenteditable="true">State / Central Board</td>
+        <td contenteditable="true">Marks %</td>
+        <td contenteditable="true">Passing Year</td>
       </tr>
     </tbody>
   </table>
 </div>
-<Br><Br><Br><Br><Br>
-<h2>ACHIEVEMENT</h2>
+
+<h2>PROJECTS / EXPERIENCE</h2>
 <div class="edit" contenteditable="true">
-• Developed and deployed 50+ live projects, managing the complete workflow from frontend development to web-to-app conversion using Median.co.
-• Experienced in the full development lifecycle, including development, deployment, and ongoing project maintenance using GitHub.
+• Project Title 1 — Brief description of what you built and technology used.<br>
+• Project Title 2 — Brief description of what you built and technology used.
 </div>
-<h2>HOBBIES</h2>
+
+<h2>ACHIEVEMENTS / HOBBIES</h2>
 <div class="edit" contenteditable="true">
-• Technology Exploration: Researching emerging web technologies and exploring open-source projects on GitHub
-• Continuous Learning: Reading technical documentation and staying updated with industry trends
-• UI/UX Exploration: Experimenting with user interface and user experience design for responsive web applications
+• List your professional, academic or extra-curricular achievements here.<br>
+• Mention your hobbies or constructive personal activities.
 </div>
 
 <h2>PERSONAL DETAILS</h2>
 <div class="edit" contenteditable="true">
-Address :- 202, Silent Park Phase 2 Near Bhabhola Naka Sandor Road Vasai﻿ West 401202.
-Date of Birth :- 02 August 1995
-Gender :- Male
-Nationality :- India
-Marital status :- Unmarried 
-• English – Intermediate Proficiency
-• Hindi – Fluent
-• Marathi – Fluent
+Address :- Your Full Address Details Here.<br>
+Date of Birth :- DD Month YYYY<br>
+Gender :- Male / Female / Other<br>
+Nationality :- Country Name<br>
+Languages Known :- English, Hindi, Regional Languages
 </div>
 
 <h2>DECLARATION</h2>
 <div class="edit" contenteditable="true">
-I hereby declare that the information provided in this resume is true and accurate to the best of my knowledge and belief.
-
-Date: 14 April 2026
-Place: Mumbai, Maharashtra
-
-(Vedprakash Dubey)
+I hereby declare that the information provided in this resume is true and accurate to the best of my knowledge and belief.<br><br>
+Date: DD April YYYY<br>
+Place: City, State<br><br>
+(Your Name In Brackets)
 </div>
 
 <div class="signature-container">
   <div class="signature-box">
     <div class="signature-line"></div>
-    <div class="signature-text" contenteditable="true">Signature / Name</div>
+    <div class="signature-text" contenteditable="true">Your Signature Name</div>
   </div>
 </div>
 
@@ -349,7 +336,6 @@ Place: Mumbai, Maharashtra
 </div>
 
 <script>
-// Naya row insert karne ka logic
 function addNewRow() {
   const tableBody = document.getElementById('education-table').getElementsByTagName('tbody')[0];
   const newRow = tableBody.insertRow();
@@ -357,16 +343,14 @@ function addNewRow() {
   for (let i = 0; i < 5; i++) {
     const newCell = newRow.insertCell(i);
     newCell.setAttribute('contenteditable', 'true');
-    newCell.innerText = 'Click to edit';
+    newCell.innerText = '-';
   }
 }
 
-// Galati se add huye row ko remove karne ka logic
 function removeLastRow() {
   const tableBody = document.getElementById('education-table').getElementsByTagName('tbody')[0];
   const rowCount = tableBody.rows.length;
   
-  // Kam se kam ek row rehni chahiye, poori table khali hone se bachegi
   if (rowCount > 1) {
     tableBody.deleteRow(rowCount - 1);
   } else {
@@ -379,7 +363,7 @@ function downloadPDF() {
   
   const opt = {
     margin:       10,
-    filename:     'Resume.pdf',
+    filename:     'My_Resume.pdf',
     image:        { type: 'jpeg', quality: 0.98 },
     html2canvas:  { scale: 2, useCORS: true, scrollX: 0, scrollY: 0, ignoreElements: function(el) { return el.classList.contains('data-html2pdf-ignore'); } },
     jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
