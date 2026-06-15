@@ -11,43 +11,38 @@ body{margin:0;background:#eef2f7;font-family:Arial,sans-serif;padding:24px}
 /* Niche ka teal background color */
 .card{background:#0e5c56;color:#ffffff;border-radius:18px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.15)}
 
-/* Header - Ved.png ko thoda neeche push kiya (center 20%) taaki face sahi se fit ho aur kate nahi */
-.top{
-  padding:36px;
-  background:url('Ved.png') center 20%/cover no-repeat;
-  color: #facc15;
-}
+.top{padding:36px;color:#facc15;text-align:center;}
 
 /* Upar ka naam aur details - Yellow Color */
 .top h1{
   margin:0;
   font-size:34px;
   color:#facc15;
-  text-shadow: 0 2px 5px rgba(0,0,0,0.8);
+  text-shadow: 0 2px 4px rgba(0,0,0,0.6);
 }
 .top p{
   margin:8px 0 0;
   color:#facc15;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
 }
 
 .content{padding:28px}
 
-/* Profile, Education jaisi saari headings ko bhi pila (yellow) kar diya hai */
+/* Profile, Education jaisi saari headings ko pila (yellow) kar diya hai */
 h2{
   font-size:16px;
-  border-bottom:2px solid rgba(255,255,255,0.25);
+  border-bottom:2px solid rgba(255,255,255,0.3);
   padding-bottom:8px;
-  color:#facc15; 
+  color:#facc15;
 }
 
-/* Fill-up content text ko pakka white (#ffffff) rakha hai */
+/* Fill-up content text ko white rakha hai */
 .edit{
   min-height:32px;
   padding:8px;
   border-radius:8px;
   background:rgba(255,255,255,0.1);
-  color:#ffffff; 
+  color:#ffffff;
 }
 
 ul{margin-top:8px}
@@ -56,11 +51,27 @@ ul{margin-top:8px}
 button{padding:12px 16px;border:none;border-radius:10px;background:#111827;color:white;cursor:pointer}
 [contenteditable="true"]:focus{outline:2px solid #60a5fa}
 
+/* Wapas se gol (circle) avatar lagaya */
+.avatar {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 15px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top; /* Face theek se dikhane ke liye image upar se align hai */
+}
+
 @media print{
 body{background:white;padding:0}
 .print{display:none}
 .card{box-shadow:none;background:#0e5c56 !important;-webkit-print-color-adjust: exact;print-color-adjust: exact;}
-.top{background:url('Ved.png') center 20%/cover no-repeat !important;-webkit-print-color-adjust: exact;print-color-adjust: exact;}
+.avatar img{-webkit-print-color-adjust: exact;print-color-adjust: exact;}
 }
 </style>
 </head>
@@ -72,6 +83,9 @@ body{background:white;padding:0}
 
 <div class="card">
 <div class="top">
+<div class="avatar">
+<img src="Ved.png" alt="Profile Picture">
+</div>
 <h1 contenteditable="true">YOUR NAME</h1>
 <p contenteditable="true">Fresher • TY Student • Web / .NET Developer</p>
 <p contenteditable="true">Phone • Email • City</p>
