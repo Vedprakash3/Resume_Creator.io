@@ -19,105 +19,53 @@ body{margin:0;background:#eef2f7;font-family:Arial,sans-serif;padding:24px}
   padding: 28px;
 }
 
-.top{padding:10px 0 0 0;color:#facc15;text-align:center;}
-
-.top h1{
-  margin:0 0 12px 0;
-  font-size:34px;
-  color:#facc15;
+/* Flexbox Header - Strict left and right placement without centering */
+.top {
+  padding: 10px 0 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
 }
 
-/* Header text boxes styled like content boxes */
-.top-edit {
-  padding: 10px;
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.1);
-  color: #facc15;
-  margin-bottom: 12px;
-  display: block;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-/* Headings aur titles - Yellow Color */
-h2{
-  font-size:16px;
-  border-bottom:2px solid rgba(255,255,255,0.3);
-  padding-bottom:8px;
-  color:#facc15;
-  margin-top: 24px;
-  margin-bottom: 12px;
-}
-
-/* Input Boxes - White Text */
-.edit{
-  min-height:32px;
-  padding:10px;
-  border-radius:8px;
-  background:rgba(255, 255, 255, 0.1);
-  color:#ffffff;
-}
-
-/* Mobile Responsive Table Container */
-.table-responsive {
-  width: 100%;
-  overflow-x: auto; /* Isse mobile par side scroll chalega aur table kategi nahi */
-  -webkit-overflow-scrolling: touch;
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.1);
-}
-
-/* Table Style for Education Section */
-.edu-table {
-  width: 100%;
-  min-width: 650px; /* Force karega columns ko sahi space lene ke liye */
-  border-collapse: collapse;
-  color: #ffffff;
-}
-.edu-table th, .edu-table td {
-  padding: 12px 10px;
+/* Header Left Text Area */
+.top-text-area {
+  max-width: 70%;
+  display: flex;
+  flex-direction: column;
+  gap: 4px; 
   text-align: left;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  font-size: 14px;
-  word-break: break-word; /* Lambe words ko wrap karega */
 }
-.edu-table th {
-  background: rgba(255, 255, 255, 0.15);
-  color: #facc15;
+
+/* Plain clean text format */
+.top-edit {
+  padding: 0;
+  background: none;
+  border: none;
+  color: #cbd5e1; 
+  box-sizing: border-box;
+  text-align: left;
+  font-size: 16px;
+  display: block;
+}
+
+/* Name heading specific style */
+.top-text-area h1 {
+  margin: 0 0 4px 0;
+  font-size: 32px;
+  color: #ffffff; 
   font-weight: bold;
 }
 
-.small{color:#cbd5e1; margin-top: 24px;}
-.print{margin:16px 0}
-
-/* Download Button Styling */
-button{
-  padding:14px 20px;
-  border:none;
-  border-radius:10px;
-  background:#111827;
-  color:white;
-  font-weight: bold;
-  font-size: 14px;
-  cursor:pointer;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  transition: background 0.2s;
-}
-button:hover{
-  background: #1f2937;
-}
-
-[contenteditable="true"]:focus{outline:2px solid #60a5fa; background: rgba(255,255,255,0.15);}
-
-/* Circle avatar design */
+/* Rectangle avatar layout right side me */
 .avatar {
-  width: 140px;
+  width: 110px;
   height: 140px;
-  border-radius: 50%;
+  border-radius: 4px; 
   overflow: hidden;
-  margin: 0 auto 15px;
+  flex-shrink: 0;
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  border: 3px solid #facc15;
+  border: 2px solid rgba(255, 255, 255, 0.4);
 }
 .avatar img {
   width: 100%;
@@ -126,11 +74,142 @@ button:hover{
   object-position: center top;
 }
 
-/* Mobile responsive padding tweaks */
+/* Headings aur titles - Yellow Color */
+h2 {
+  font-size: 16px;
+  border-bottom: 2px solid rgba(255,255,255,0.3);
+  padding-bottom: 8px;
+  color: #facc15;
+  margin-top: 24px;
+  margin-bottom: 12px;
+}
+
+/* Input Boxes - White Text */
+.edit {
+  min-height: 32px;
+  padding: 10px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+/* Mobile Responsive Table Container */
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Table Style for Education Section */
+.edu-table {
+  width: 100%;
+  min-width: 650px;
+  border-collapse: collapse;
+  color: #ffffff;
+}
+.edu-table th, .edu-table td {
+  padding: 12px 10px;
+  text-align: left;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 14px;
+  word-break: break-word;
+}
+.edu-table th {
+  background: rgba(255, 255, 255, 0.15);
+  color: #facc15;
+  font-weight: bold;
+}
+
+/* Action Section buttons ke liye (PDF me hide rahega) */
+.action-box {
+  margin-bottom: 10px;
+  display: flex;
+  gap: 10px;
+}
+.btn-action {
+  padding: 6px 12px;
+  font-size: 12px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.btn-add {
+  background: #facc15;
+  color: #111827;
+}
+.btn-add:hover {
+  background: #e2b80d;
+}
+.btn-remove {
+  background: #ef4444;
+  color: white;
+}
+.btn-remove:hover {
+  background: #dc2626;
+}
+
+/* Signature Area Styling */
+.signature-container {
+  display: flex;
+  justify-content: flex-end; 
+  margin-top: 40px;
+  padding-bottom: 10px;
+}
+
+.signature-box {
+  text-align: center;
+  width: 200px;
+}
+
+.signature-line {
+  border-top: 1px dashed rgba(255, 255, 255, 0.6); 
+  margin-bottom: 8px;
+}
+
+.signature-text {
+  font-size: 14px;
+  color: #cbd5e1;
+}
+
+.small { color: #cbd5e1; margin-top: 24px; }
+.print { margin: 16px 0; }
+
+/* Download Button Styling */
+button {
+  padding: 14px 20px;
+  border: none;
+  border-radius: 10px;
+  background: #111827;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: background 0.2s;
+}
+button:hover {
+  background: #1f2937;
+}
+
+[contenteditable="true"]:focus { outline: 2px solid #60a5fa; background: rgba(255,255,255,0.15); border-radius: 4px; }
+
+@media (max-width: 600px) {
+  .top {
+    flex-direction: row; 
+    align-items: flex-start;
+  }
+}
+
 @media (max-width: 480px) {
   body { padding: 12px; }
   .invoice-box { padding: 16px; }
-  .top h1 { font-size: 28px; }
+  .top-text-area h1 { font-size: 24px; }
+  .top-edit { font-size: 14px; }
+  .avatar { width: 90px; height: 115px; }
 }
 </style>
 </head>
@@ -142,12 +221,15 @@ button:hover{
 
 <div id="resume-card" class="invoice-box">
 <div class="top">
-<div class="avatar">
-  <img src="Ved.png" alt="Profile Picture">
-</div>
-<h1 class="top-edit" contenteditable="true">YOUR NAME</h1>
-<div class="top-edit" contenteditable="true">Fresher • TY Student • Web / .NET Developer</div>
-<div class="top-edit" contenteditable="true">Phone • Email • City</div>
+  <div class="top-text-area">
+    <h1 contenteditable="true">Vedprakash Dubey</h1>
+    <div class="top-edit" contenteditable="true">dubey281995@gmail.com</div>
+    <div class="top-edit" contenteditable="true">https://vedprakash3.github.io/</div>
+    <div class="top-edit" contenteditable="true">8329912725</div>
+  </div>
+  <div class="avatar">
+    <img src="Ved.png" alt="Profile Picture">
+  </div>
 </div>
 
 <div class="content">
@@ -156,15 +238,20 @@ button:hover{
 <div class="edit" contenteditable="true">
 Third-year student looking for internship and fresher opportunities.
 </div>
+
 <h2>SKILLS</h2>
 <div class="edit" contenteditable="true">
-Third-year student looking for internship and fresher opportunities.
+Add your skills here (e.g., HTML, CSS, JavaScript, C#, .NET).
 </div>
 
 <h2>EDUCATION</h2>
-<!-- Responsive wrappers taaki choti screen par horizontal scroll chale -->
+<div class="action-box data-html2pdf-ignore">
+  <button type="button" class="btn-action btn-add" onclick="addNewRow()">➕ Add New Row</button>
+  <button type="button" class="btn-action btn-remove" onclick="removeLastRow()">❌ Remove Last Row</button>
+</div>
+
 <div class="table-responsive">
-  <table class="edu-table">
+  <table class="edu-table" id="education-table">
     <thead>
       <tr>
         <th>Degree/Course</th>
@@ -213,25 +300,33 @@ Third-year student looking for internship and fresher opportunities.
     </tbody>
   </table>
 </div>
-<Br>
+<br>
+
 <h2>ACHIEVEMENT</h2>
 <div class="edit" contenteditable="true">
-HTML • CSS • JavaScript • C# • .NET
+Add your professional or academic achievements here.
 </div>
 
 <h2>HOBBIES</h2>
 <div class="edit" contenteditable="true">
-Project Name — Description
+Project Name — Description / Your hobbies list
 </div>
 
 <h2>PERSONAL DETAILS</h2>
 <div class="edit" contenteditable="true">
-Add certificates
+Add personal info (e.g., Date of Birth, Nationality, Marital Status).
 </div>
 
 <h2>DECLARATION</h2>
 <div class="edit" contenteditable="true">
-English • Hindi
+I hereby declare that the details furnished above are true and correct to the best of my knowledge.
+</div>
+
+<div class="signature-container">
+  <div class="signature-box">
+    <div class="signature-line"></div>
+    <div class="signature-text" contenteditable="true">Signature / Name</div>
+  </div>
 </div>
 
 </div>
@@ -239,6 +334,31 @@ English • Hindi
 </div>
 
 <script>
+// Naya row insert karne ka logic
+function addNewRow() {
+  const tableBody = document.getElementById('education-table').getElementsByTagName('tbody')[0];
+  const newRow = tableBody.insertRow();
+
+  for (let i = 0; i < 5; i++) {
+    const newCell = newRow.insertCell(i);
+    newCell.setAttribute('contenteditable', 'true');
+    newCell.innerText = 'Click to edit';
+  }
+}
+
+// Galati se add huye row ko remove karne ka logic
+function removeLastRow() {
+  const tableBody = document.getElementById('education-table').getElementsByTagName('tbody')[0];
+  const rowCount = tableBody.rows.length;
+  
+  // Kam se kam ek row rehni chahiye, poori table khali hone se bachegi
+  if (rowCount > 1) {
+    tableBody.deleteRow(rowCount - 1);
+  } else {
+    alert("Saari rows delete nahi ki ja sakti!");
+  }
+}
+
 function downloadPDF() {
   const element = document.getElementById('resume-card');
   
@@ -246,7 +366,7 @@ function downloadPDF() {
     margin:       10,
     filename:     'Resume.pdf',
     image:        { type: 'jpeg', quality: 0.98 },
-    html2canvas:  { scale: 2, useCORS: true, scrollX: 0, scrollY: 0 },
+    html2canvas:  { scale: 2, useCORS: true, scrollX: 0, scrollY: 0, ignoreElements: function(el) { return el.classList.contains('data-html2pdf-ignore'); } },
     jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
   };
   
