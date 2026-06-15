@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Resume Template</title>
+<style>
+body{margin:0;background:#eef2f7;font-family:Arial,sans-serif;padding:24px}
+.wrap{max-width:900px;margin:auto}
+.card{background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.08)}
+.top{padding:36px;background:#1f2937;color:white}
+.top h1{margin:0;font-size:34px}
+.top p{margin:8px 0 0}
+.content{padding:28px}
+h2{font-size:16px;border-bottom:2px solid #e5e7eb;padding-bottom:8px}
+.edit{min-height:32px;padding:8px;border-radius:8px;background:#fafafa}
+ul{margin-top:8px}
+.small{color:#6b7280}
+.print{margin:16px 0}
+button{padding:12px 16px;border:none;border-radius:10px;background:#111827;color:white;cursor:pointer}
+[contenteditable="true"]:focus{outline:2px solid #60a5fa}
+@media print{
+body{background:white;padding:0}
+.print{display:none}
+.card{box-shadow:none}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="print">
+<button onclick="window.print()">Download / Save as PDF</button>
+</div>
+
+<div class="card">
+<div class="top">
+<h1 contenteditable="true">YOUR NAME</h1>
+<p contenteditable="true">Fresher • TY Student • Web / .NET Developer</p>
+<p contenteditable="true">Phone • Email • City</p>
+</div>
+
+<div class="content">
+
+<h2>Profile</h2>
+<div class="edit" contenteditable="true">
+Third-year student looking for internship and fresher opportunities.
+</div>
+
+<h2>Education</h2>
+<div class="edit" contenteditable="true">
+Course • College • Graduation Year
+</div>
+
+<h2>Skills</h2>
+<div class="edit" contenteditable="true">
+HTML • CSS • JavaScript • C# • .NET
+</div>
+
+<h2>Projects</h2>
+<div class="edit" contenteditable="true">
+Project Name — Description
+</div>
+
+<h2>Certificates</h2>
+<div class="edit" contenteditable="true">
+Add certificates
+</div>
+
+<h2>Languages</h2>
+<div class="edit" contenteditable="true">
+English • Hindi
+</div>
+
+<p class="small">Click any section and type your own details. Then press Download / Save as PDF.</p>
+
+</div>
+</div>
+</div>
+</body>
+</html>
