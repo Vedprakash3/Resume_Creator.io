@@ -33,7 +33,7 @@ body{margin:0;background:#eef2f7;font-family:Arial,sans-serif;padding:24px}
   max-width: 70%;
   display: flex;
   flex-direction: column;
-  gap: 4px; 
+  gap: 4px;
   text-align: left;
 }
 
@@ -42,7 +42,7 @@ body{margin:0;background:#eef2f7;font-family:Arial,sans-serif;padding:24px}
   padding: 0;
   background: none;
   border: none;
-  color: #cbd5e1; 
+  color: #cbd5e1;
   box-sizing: border-box;
   text-align: left;
   font-size: 16px;
@@ -53,7 +53,7 @@ body{margin:0;background:#eef2f7;font-family:Arial,sans-serif;padding:24px}
 .top-text-area h1 {
   margin: 0 0 4px 0;
   font-size: 32px;
-  color: #ffffff; 
+  color: #ffffff;
   font-weight: bold;
 }
 
@@ -61,7 +61,7 @@ body{margin:0;background:#eef2f7;font-family:Arial,sans-serif;padding:24px}
 .avatar {
   width: 110px;
   height: 140px;
-  border-radius: 4px; 
+  border-radius: 4px;
   overflow: hidden;
   flex-shrink: 0;
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
@@ -82,6 +82,8 @@ h2 {
   color: #facc15;
   margin-top: 24px;
   margin-bottom: 12px;
+  page-break-after: avoid;
+  break-after: avoid;
 }
 
 /* Input Boxes - White Text */
@@ -92,6 +94,19 @@ h2 {
   background: rgba(255, 255, 255, 0.1);
   color: #ffffff;
   line-height: 1.5;
+}
+
+/* Section wrapper - cut hone se bachane ke liye */
+.section-block {
+  page-break-inside: avoid;
+  break-inside: avoid;
+  margin-bottom: 16px;
+}
+
+/* PDF Spacer - <br> ka replacement */
+.pdf-spacer {
+  height: 60px;
+  page-break-before: always;
 }
 
 /* Mobile Responsive Table Container */
@@ -109,9 +124,9 @@ h2 {
   width: 100%;
   border-collapse: collapse;
   color: #ffffff;
-  table-layout: fixed; /* Strictly keeps layout responsive without bleeding out */
+  table-layout: fixed;
 }
-.edu-table th, .edu-table td {
+.edu-table th,.edu-table td {
   padding: 10px 6px;
   text-align: left;
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -119,7 +134,7 @@ h2 {
   line-height: 1.4;
   word-wrap: break-word;
   overflow-wrap: break-word;
-  vertical-align: top; 
+  vertical-align: top;
 }
 .edu-table th {
   background: rgba(255, 255, 255, 0.15);
@@ -160,7 +175,7 @@ h2 {
 /* Signature Area Styling */
 .signature-container {
   display: flex;
-  justify-content: flex-end; 
+  justify-content: flex-end;
   margin-top: 40px;
   padding-bottom: 10px;
 }
@@ -171,7 +186,7 @@ h2 {
 }
 
 .signature-line {
-  border-top: 1px dashed rgba(255, 255, 255, 0.6); 
+  border-top: 1px dashed rgba(255, 255, 255, 0.6);
   margin-bottom: 8px;
 }
 
@@ -202,20 +217,28 @@ button:hover {
 
 [contenteditable="true"]:focus { outline: 2px solid #60a5fa; background: rgba(255,255,255,0.15); border-radius: 4px; }
 
+/* PDF banate time spacer ki height 0 kardo */
+@media print {
+ .pdf-spacer {
+    height: 0;
+    page-break-before: always;
+  }
+}
+
 @media (max-width: 600px) {
-  .top {
-    flex-direction: row; 
+ .top {
+    flex-direction: row;
     align-items: flex-start;
   }
 }
 
 @media (max-width: 480px) {
   body { padding: 12px; }
-  .invoice-box { padding: 16px; }
-  .top-text-area h1 { font-size: 24px; }
-  .top-edit { font-size: 14px; }
-  .avatar { width: 90px; height: 115px; }
-  .edu-table th, .edu-table td { font-size: 11px; padding: 6px 4px; }
+ .invoice-box { padding: 16px; }
+ .top-text-area h1 { font-size: 24px; }
+ .top-edit { font-size: 14px; }
+ .avatar { width: 90px; height: 115px; }
+ .edu-table th,.edu-table td { font-size: 11px; padding: 6px 4px; }
 }
 </style>
 </head>
@@ -240,106 +263,122 @@ button:hover {
 
 <div class="content">
 
-<h2>CAREER OBJECTIVE</h2>
-<div class="edit" contenteditable="true">
-Third-year student seeking internship and entry-level opportunities.
+<div class="section-block">
+  <h2>CAREER OBJECTIVE</h2>
+  <div class="edit" contenteditable="true">
+  Third-year student seeking internship and entry-level opportunities.
+  </div>
 </div>
 
-<h2>SKILLS</h2>
-<div class="edit" contenteditable="true">
-• Web Technologies: HTML5, CSS3, JavaScript, Responsive Web Design<br>
-• Mobile Development: Web-to-App Conversion (Median.co), WebView Integration<br>
-• Tools & Deployment: GitHub, Static Site Hosting
+<div class="section-block">
+  <h2>SKILLS</h2>
+  <div class="edit" contenteditable="true">
+    - Web Technologies: HTML5, CSS3, JavaScript, Responsive Web Design<br>
+    - Mobile Development: Web-to-App Conversion (Median.co), WebView Integration<br>
+    - Tools & Deployment: GitHub, Static Site Hosting
+  </div>
 </div>
 
-<h2>EDUCATION</h2>
-<div class="action-box data-html2pdf-ignore">
-  <button type="button" class="btn-action btn-add" onclick="addNewRow()">➕ Add New Row</button>
-  <button type="button" class="btn-action btn-remove" onclick="removeLastRow()">❌ Remove Last Row</button>
+<div class="section-block">
+  <h2>EDUCATION</h2>
+  <div class="action-box data-html2pdf-ignore">
+    <button type="button" class="btn-action btn-add" onclick="addNewRow()">➕ Add New Row</button>
+    <button type="button" class="btn-action btn-remove" onclick="removeLastRow()">❌ Remove Last Row</button>
+  </div>
+
+  <div class="table-responsive">
+    <table class="edu-table" id="education-table">
+      <thead>
+        <tr>
+          <th style="width: 28%;">Degree/Course</th>
+          <th style="width: 25%;">Institute/College</th>
+          <th style="width: 23%;">University/Board</th>
+          <th style="width: 12%;">Percentage/<br>CGPA</th>
+          <th style="width: 12%;">Year of Passing</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td contenteditable="true">Maharashtra State Certificate in Information Technology</td>
+          <td contenteditable="true">Lakshya Computer Education</td>
+          <td contenteditable="true">Maharashtra Knowledge Corporation Limited</td>
+          <td contenteditable="true">58%</td>
+          <td contenteditable="true">2010</td>
+        </tr>
+        <tr>
+          <td contenteditable="true">(10th) Secondary School Certificate (SSC)</td>
+          <td contenteditable="true">Maharashtra English High School</td>
+          <td contenteditable="true">Maharashtra State Board</td>
+          <td contenteditable="true">55.20%</td>
+          <td contenteditable="true">2014</td>
+        </tr>
+        <tr>
+          <td contenteditable="true">(HSC) Higher Secondary School Certificate (12th Commerce Specialization: Mathematics & Information Technology)</td>
+          <td contenteditable="true">Advocate Gurunath Kulkarni College of Commerce and Management</td>
+          <td contenteditable="true">Maharashtra State Board</td>
+          <td contenteditable="true">49.38%</td>
+          <td contenteditable="true">2016</td>
+        </tr>
+        <tr>
+          <td contenteditable="true">Diploma in Software Engineering</td>
+          <td contenteditable="true">I-Tech Computer Education</td>
+          <td contenteditable="true">I-Tech Computer Education</td>
+          <td contenteditable="true">A Grade</td>
+          <td contenteditable="true">2020</td>
+        </tr>
+        <tr>
+          <td contenteditable="true">(Bsc) Bachelor of Science (Specialization: Information Technology)</td>
+          <td contenteditable="true">Dr.Babasaheb Ambedkar College of Science</td>
+          <td contenteditable="true">Mumbai University</td>
+          <td contenteditable="true">.%</td>
+          <td contenteditable="true">2026</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
 
-<div class="table-responsive">
-  <table class="edu-table" id="education-table">
-    <thead>
-      <tr>
-        <th style="width: 28%;">Degree/Course</th>
-        <th style="width: 25%;">Institute/College</th>
-        <th style="width: 23%;">University/Board</th>
-        <th style="width: 12%;">Percentage/<br>CGPA</th>
-        <th style="width: 12%;">Year of Passing</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td contenteditable="true">Maharashtra State Certificate in Information Technology</td>
-        <td contenteditable="true">Lakshya Computer Education</td>
-        <td contenteditable="true">Maharashtra Knowledge Corporation Limited</td>
-        <td contenteditable="true">58%</td>
-        <td contenteditable="true">2010</td>
-      </tr>
-      <tr>
-        <td contenteditable="true">(10th) Secondary School Certificate (SSC)</td>
-        <td contenteditable="true">Maharashtra English High School</td>
-        <td contenteditable="true">Maharashtra State Board</td>
-        <td contenteditable="true">55.20%</td>
-        <td contenteditable="true">2014</td>
-      </tr>
-      <tr>
-        <td contenteditable="true">(HSC) Higher Secondary School Certificate (12th Commerce Specialization: Mathematics & Information Technology)</td>
-        <td contenteditable="true">Advocate Gurunath Kulkarni College of Commerce and Management</td>
-        <td contenteditable="true">Maharashtra State Board</td>
-        <td contenteditable="true">49.38%</td>
-        <td contenteditable="true">2016</td>
-      </tr>
-      <tr>
-        <td contenteditable="true">Diploma in Software Engineering</td>
-        <td contenteditable="true">I-Tech Computer Education</td>
-        <td contenteditable="true">I-Tech Computer Education</td>
-        <td contenteditable="true">A Grade</td>
-        <td contenteditable="true">2020</td>
-      </tr>
-      <tr>
-        <td contenteditable="true">(Bsc) Bachelor of Science (Specialization: Information Technology)</td>
-        <td contenteditable="true">Dr.Babasaheb Ambedkar College of Science</td>
-        <td contenteditable="true">Mumbai University</td>
-        <td contenteditable="true">.%</td>
-        <td contenteditable="true">2026</td>
-      </tr>
-    </tbody>
-  </table>
+<div class="section-block">
+  <h2>ACHIEVEMENT</h2>
+  <div class="edit" contenteditable="true">
+    - Developed and deployed 50+ live projects, managing the complete workflow from frontend development to web-to-app conversion using Median.co.<br>
+    - Experienced in the full development lifecycle, including development, deployment, and ongoing project maintenance using GitHub.
+  </div>
 </div>
 
-<h2>ACHIEVEMENT</h2>
-<div class="edit" contenteditable="true">
-• Developed and deployed 50+ live projects, managing the complete workflow from frontend development to web-to-app conversion using Median.co.<br>
-• Experienced in the full development lifecycle, including development, deployment, and ongoing project maintenance using GitHub.
-</div>
-<Br><Br><Br><Br>
-<h2>HOBBIES</h2>
-<div class="edit" contenteditable="true">
-• Technology Exploration: Researching emerging web technologies and exploring open-source projects on GitHub<br>
-• Continuous Learning: Reading technical documentation and staying updated with industry trends<br>
-• UI/UX Exploration: Experimenting with user interface and user experience design for responsive web applications
+<div class="pdf-spacer"></div>
+
+<div class="section-block">
+  <h2>HOBBIES</h2>
+  <div class="edit" contenteditable="true">
+    - Technology Exploration: Researching emerging web technologies and exploring open-source projects on GitHub<br>
+    - Continuous Learning: Reading technical documentation and staying updated with industry trends<br>
+    - UI/UX Exploration: Experimenting with user interface and user experience design for responsive web applications
+  </div>
 </div>
 
-<h2>PERSONAL DETAILS</h2>
-<div class="edit" contenteditable="true">
-Address :- 202, Silent Park Phase 2 Near Bhabhola Naka Sandor Road Vasai West 401202.<br>
-Date of Birth :- 02 August 1995<br>
-Gender :- Male<br>
-Nationality :- India<br>
-Marital status :- Unmarried <br>
-• English – Intermediate Proficiency<br>
-• Hindi – Fluent<br>
-• Marathi – Fluent
+<div class="section-block">
+  <h2>PERSONAL DETAILS</h2>
+  <div class="edit" contenteditable="true">
+  Address :- 202, Silent Park Phase 2 Near Bhabhola Naka Sandor Road Vasai West 401202.<br>
+  Date of Birth :- 02 August 1995<br>
+  Gender :- Male<br>
+  Nationality :- India<br>
+  Marital status :- Unmarried <br>
+    • English – Intermediate Proficiency<br>
+    • Hindi – Fluent<br>
+    • Marathi – Fluent
+  </div>
 </div>
 
-<h2>DECLARATION</h2>
-<div class="edit" contenteditable="true">
-I hereby declare that the information provided in this resume is true and accurate to the best of my knowledge and belief.<br><br>
-Date: 14 April 2026<br>
-Place: Mumbai, Maharashtra<br><br>
-(Vedprakash Dubey)
+<div class="section-block">
+  <h2>DECLARATION</h2>
+  <div class="edit" contenteditable="true">
+  I hereby declare that the information provided in this resume is true and accurate to the best of my knowledge and belief.<br><br>
+  Date: 14 April 2026<br>
+  Place: Mumbai, Maharashtra<br><br>
+  (Vedprakash Dubey)
+  </div>
 </div>
 
 <div class="signature-container">
@@ -359,8 +398,6 @@ Place: Mumbai, Maharashtra<br><br>
 function addNewRow() {
   const tableBody = document.getElementById('education-table').getElementsByTagName('tbody')[0];
   const newRow = tableBody.insertRow();
-
-  // Naye cells ko responsive rakhne ke liye default dummy text
   for (let i = 0; i < 5; i++) {
     const newCell = newRow.insertCell(i);
     newCell.setAttribute('contenteditable', 'true');
@@ -371,7 +408,6 @@ function addNewRow() {
 function removeLastRow() {
   const tableBody = document.getElementById('education-table').getElementsByTagName('tbody')[0];
   const rowCount = tableBody.rows.length;
-  
   if (rowCount > 1) {
     tableBody.deleteRow(rowCount - 1);
   } else {
@@ -381,15 +417,22 @@ function removeLastRow() {
 
 function downloadPDF() {
   const element = document.getElementById('resume-card');
-  
+
   const opt = {
-    margin:       10,
-    filename:     'Resume.pdf',
-    image:        { type: 'jpeg', quality: 0.98 },
-    html2canvas:  { scale: 2, useCORS: true, scrollX: 0, scrollY: 0, ignoreElements: function(el) { return el.classList.contains('data-html2pdf-ignore'); } },
-    jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
+    margin: 5,
+    filename: 'Resume_Vedprakash.pdf',
+    image: { type: 'jpeg', quality: 0.98 },
+    html2canvas: {
+      scale: 2,
+      useCORS: true,
+      scrollX: 0,
+      scrollY: 0,
+      windowHeight: element.scrollHeight,
+      ignoreElements: function(el) { return el.classList.contains('data-html2pdf-ignore'); }
+    },
+    jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
   };
-  
+
   html2pdf().set(opt).from(element).save();
 }
 </script>
